@@ -34,7 +34,10 @@ const show = async (req, res) => {
     return res.status(401).json({ message: "Senha incorreta!"});
   }
 
-  return res.status(200).json({ message: "Usuário logado com sucesso" });
+  return res.status(200).json({ 
+    id: user.id,
+    email
+  });
 }
 
 module.exports = {
