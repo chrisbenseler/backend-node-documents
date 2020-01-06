@@ -18,10 +18,7 @@ const store = async (req,res) => {
     });
 
   } catch(err) {
-    return res.status(400).json({
-      errMessage: err.message,
-      message: "User with this Id not found"
-    });
+    return res.boom.badRequest('Documents of this user not found');
   }
 }
 
@@ -35,9 +32,7 @@ const show = async (req,res) => {
       documents
     });
   } catch(err) {
-    return res.status(400).json({
-      message: "Documents of this user not found"
-    });
+    return res.boom.badRequest('Documents of this user not found2');
   }
 }
 
