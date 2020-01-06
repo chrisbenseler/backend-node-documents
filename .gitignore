@@ -1,2 +1,4 @@
-config_keys.js
+config_keys.*
 node_modules/*
+package-lock.json
+yarn.lock
