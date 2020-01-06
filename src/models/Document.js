@@ -5,10 +5,22 @@ const DocumentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  doc_cnh: Boolean,
-  cep: Boolean,
-  placa_carro: Boolean,
-  doc_carro: Boolean,
+  doc_cnh: {
+    type: Boolean,
+    default: false
+  },
+  cep: {
+    type: Boolean,
+    default: false
+  },
+  placa_carro: {
+    type: Boolean,
+    default: false
+  },
+  doc_carro: {
+    type: Boolean,
+    default: false
+  },
 });
 
 module.exports = mongoose.model('Document', DocumentSchema); 
