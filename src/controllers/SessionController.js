@@ -2,12 +2,17 @@
 const User = require('../models/User');
 
 const store = async (req, res) => {
-  const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
+
+    if(!email || !password) {
+      return res.boom.badRequest('Missing parameters');
+    }
 
     let user = await User.findOne({ email });
 
     if(user) {
-      return res.status(400).json({ message: "User already created"});
+      return res.boom.badRequest('User already created');
     }
 
     user = await User.create({
@@ -19,6 +24,9 @@ const store = async (req, res) => {
       id: user._id,
       email: user.email
     });
+  } catch(e) {
+    return res.boom.badImplementation(e);
+  }
 }
 
 const show = async (req, res) => {
