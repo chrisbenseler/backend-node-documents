@@ -2,11 +2,6 @@ const Document = require('../models/Document');
 
 const store = async (req,res) => {
   const { userid: userId } = req.headers;
-  if(!userId) {
-    return res.status(403).json({
-      message: "User not allowed"
-    });
-  }
 
   try {
 
@@ -33,12 +28,6 @@ const store = async (req,res) => {
 const show = async (req,res) => {
   const { userid: userId } = req.headers;
 
-  if(!userId) {
-    return res.status(403).json({
-      message: "User not allowed"
-    });
-  }
-  
   try {
     const documents = await Document.findOne({ user: userId});
 
