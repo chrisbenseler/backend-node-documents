@@ -8,5 +8,6 @@ routes.post('/sessions/signup', SessionController.store);
 routes.post('/sessions/login', SessionController.show);
 
 routes.post('/documents', DocumentController.store);
+routes.get('/documents', DocumentController.show);
 
 module.exports = routes;
