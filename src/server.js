@@ -1,12 +1,12 @@
 const routes = require('./routes');
 const express = require('express');
 const mongoose = require('mongoose');
-const mongooseKey = require('../config_keys');
+const configKeys = require('../config_keys');
 
 const app = express();
 
 mongoose.connect(
-  mongooseKey.mongoAddress, {
+  configKeys.mongoAddress, {
   useNewUrlParser: true,
   useUnifiedTopology:true
 });
