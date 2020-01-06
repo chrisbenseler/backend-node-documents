@@ -32,6 +32,10 @@ const store = async (req, res) => {
 const show = async (req, res) => {
   const { email, password } = req.body;
 
+  if(!email || !password) {
+    return res.boom.badRequest('Missing parameters');
+  }
+
   let user = await User.findOne({ email });
 
   if(!user) {
